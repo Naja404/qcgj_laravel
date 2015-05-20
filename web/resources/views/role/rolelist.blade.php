@@ -48,13 +48,13 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home home-icon"></i>
-								<a href="{:C('WEBSITE_URL')}">{:L('TEXT_HOME_PAGE')}</a>
+								<a href="{:C('WEBSITE_URL')}">{{trans('basic.TEXT_HOME_PAGE')}}</a>
 							</li>
 
 							<li>
-								<a href="{:U('Coupon/rolelist')}">{:L('TEXT_ROLE_MANAGER')}</a>
+								<a href="{:U('Coupon/rolelist')}">{{trans('role.TEXT_ROLE_MANAGER')}}</a>
 							</li>
-							<li class="active">{:L('TEXT_ROLE_LIST')}</li>
+							<li class="active">{{trans('role.TEXT_ROLE_LIST')}}</li>
 						</ul>
 
 					</div>
@@ -63,10 +63,10 @@
 
 						<div class="page-header">
 							<button class="btn">
-								<a href="#modal-addrole" role="button" data-toggle="modal"><i class="icon-pencil bigger-100">{:L('TEXT_ROLE_ADD')}</i></a>
+								<a href="#modal-addrole" role="button" data-toggle="modal"><i class="icon-pencil bigger-100">{{trans('role.TEXT_ROLE_ADD')}}</i></a>
 							</button>
 							<button class="btn">
-								<a href="#modal-addrule" role="button" class="white" data-toggle="modal"><i class="icon-pencil bigger-100">{:L('TEXT_ROLE_RULE_ADD')}</i></a>
+								<a href="#modal-addrule" role="button" class="white" data-toggle="modal"><i class="icon-pencil bigger-100">{{trans('role.TEXT_ROLE_RULE_ADD')}}</i></a>
 							</button>
 						</div>
 
@@ -480,13 +480,15 @@
 
 						<div id="modal-addrole" class="modal fade" tabindex="-1">
 							<div class="modal-dialog">
+								<form id="addrole_form" >
+								<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 								<div class="modal-content">
 									<div class="modal-header no-padding">
 										<div class="table-header">
 											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 												<span class="white">&times;</span>
 											</button>
-											Results for "Latest Registered Domains
+											{{trans('role.TEXT_ROLE_ADD')}}
 										</div>
 									</div>
 
@@ -495,7 +497,7 @@
 											<tbody>
 												<tr>
 													<td>
-														{:L('TEXT_ROLE_NAME')}
+														{{trans('role.TEXT_ROLE_NAME')}}
 													</td>
 													<td>
 														<input type="text" name="role_name" />
@@ -504,11 +506,10 @@
 
 												<tr>
 													<td>
-														{:L('TEXT_ROLE_RULE')}
+														{{trans('role.TEXT_ROLE_RULE')}}
 													</td>
 													<td>
-														<input type="checkbox" name="role_rule[]" />123
-														<input type="checkbox" name="role_rule[]" />10101
+														<input type="checkbox" name="role_rule[]" />
 													</td>
 												</tr>
 
@@ -522,33 +523,10 @@
 											Close
 										</button>
 
-										<ul class="pagination pull-right no-margin">
-											<li class="prev disabled">
-												<a href="#">
-													<i class="icon-double-angle-left"></i>
-												</a>
-											</li>
 
-											<li class="active">
-												<a href="#">1</a>
-											</li>
-
-											<li>
-												<a href="#">2</a>
-											</li>
-
-											<li>
-												<a href="#">3</a>
-											</li>
-
-											<li class="next">
-												<a href="#">
-													<i class="icon-double-angle-right"></i>
-												</a>
-											</li>
-										</ul>
 									</div>
 								</div><!-- /.modal-content -->
+								</form>
 							</div><!-- /.modal-dialog -->
 						</div>
 
@@ -562,7 +540,7 @@
 											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 												<span class="white">&times;</span>
 											</button>
-											{:L('TEXT_ROLE_RULE_ADD')}
+											{{trans('role.TEXT_ROLE_RULE_ADD')}}
 										</div>
 									</div>
 
@@ -572,62 +550,54 @@
 											<tbody>
 												<tr>
 													<td>
-														{:L('TEXT_RULE_MODULE')}
+														{{trans('role.TEXT_RULE_MODULE')}}
 													</td>
 													<td>
-														<input type="text" name="module" placeholder="{:L('TEXT_PLACEHOLDER_RULE_MODULE')}"/>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														{:L('TEXT_RULE_MODULE_TITLE')}
-													</td>
-													<td>
-														<input type="text" name="module_title" placeholder="{:L('TEXT_PLACEHOLDER_RULE_MODULE_TITLE')}"/>
-													</td>
-												</tr>
-<!-- 												<tr>
-													<td>
-														{:L('TEXT_RULE_ACTION')}
-													</td>
-													<td>
-														<input type="text" name="action" placeholder="{:L('TEXT_PLACEHOLDER_RULE_ACTION')}"/>
-													</td>
-												</tr> -->
-												<tr>
-													<td>
-														{:L('TEXT_RULE_ACTION_TITLE')}
-													</td>
-													<td>
-														<input type="text" name="action_title" placeholder="{:L('TEXT_PLACEHOLDER_RULE_ACTION_TITLE')}"/>
+														<input type="text" name="module" placeholder="{{trans('role.TEXT_PLACEHOLDER_RULE_MODULE')}}"/>
 													</td>
 												</tr>
 												<tr>
 													<td>
-														{:L('TEXT_RULE_ACTION_URL')}
+														{{trans('role.TEXT_RULE_MODULE_TITLE')}}
 													</td>
 													<td>
-														<input type="text" name="action_url" placeholder="{:L('TEXT_PLACEHOLDER_RULE_ACTION_URL')}"/>
+														<input type="text" name="module_title" placeholder="{{trans('role.TEXT_PLACEHOLDER_RULE_MODULE_TITLE')}}"/>
 													</td>
 												</tr>
 												<tr>
 													<td>
-														{:L('TEXT_RULE_SORT')}
+														{{trans('role.TEXT_RULE_ACTION_TITLE')}}
 													</td>
 													<td>
-														<input type="text" name="sort" placeholder="{:L('TEXT_PLACEHOLDER_RULE_SORT')}"/>
+														<input type="text" name="action_title" placeholder="{{trans('role.TEXT_PLACEHOLDER_RULE_ACTION_TITLE')}}"/>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														{{trans('role.TEXT_RULE_ACTION_URL')}}
+													</td>
+													<td>
+														<input type="text" name="action_url" placeholder="{{trans('role.TEXT_PLACEHOLDER_RULE_ACTION_URL')}}"/>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														{{trans('role.TEXT_RULE_SORT')}}
+													</td>
+													<td>
+														<input type="text" name="sort" placeholder="{{trans('role.TEXT_PLACEHOLDER_RULE_SORT')}}"/>
 													</td>
 												</tr>
 
 												<tr>
 													<td>
-														{:L('TEXT_RULE_TYPE')}
+														{{trans('role.TEXT_RULE_TYPE')}}
 													</td>
 													<td>
 														<select name="type">
-															<option value="1">{:L('TEXT_RULE_TYPE_1')}</option>
-															<option value="2">{:L('TEXT_RULE_TYPE_2')}</option>
-														</select>{:L('TEXT_RULE_TYPE_NOTE')}
+															<option value="1">{{trans('role.TEXT_RULE_TYPE_1')}}</option>
+															<option value="2">{{trans('role.TEXT_RULE_TYPE_2')}}</option>
+														</select>{{trans('role.TEXT_RULE_TYPE_NOTE')}}
 													</td>
 												</tr>
 
@@ -639,15 +609,15 @@
 									<div class="modal-footer no-margin-top">
 										<button class="btn btn-sm btn-danger pull-left" data-dismiss="modal" id="addrule_dismiss">
 											<i class="icon-remove"></i>
-											{:L('BTN_CLOSE')}
+											{{trans('basic.BTN_CLOSE')}}
 										</button>
 
 										<button class="btn pull-right" onclick="subAddRuleForm();return false;">
-											{:L('BTN_SUBMIT')}
+											{{trans('basic.BTN_SUBMIT')}}
 										</button>
 
 										<button class="btn btn-info pull-right" type="reset">
-											{:L('BTN_RESET')}
+											{{trans('basic.BTN_RESET')}}
 										</button>
 
 									</div>
@@ -719,8 +689,27 @@
 					success:function(data){
 
 						if (data.status) {
-							setTimeout('$("#addrule_dismiss").trigger("click");', 2000);
+							alert(data.msg);
+						}else{
+							setTimeout('$("#addrule_dismiss").trigger("click");', 1000);
 							$('#addrule_form').reset();
+						}
+					}
+				});
+			}
+
+			function subAddRoleForm(){
+				$.ajax({
+					type:"POST",
+					url:"{{url('Role/addrole')}}",
+					data:$('#addrole_form').serialize(),
+					success:function(data){
+
+						if (data.status) {
+							alert(data.msg);
+						}else{
+							setTimeout('$("#addrole_dismiss").trigger("click");', 1000);
+							$('#addrole_form').reset();
 						}
 					}
 				});

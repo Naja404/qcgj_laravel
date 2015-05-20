@@ -8,7 +8,7 @@
 					<a href="#" class="navbar-brand">
 						<small>
 							<i class="icon-leaf"></i>
-							{:L('TEXT_TITLE')}
+							{{trans('basic.TEXT_TITLE')}}
 						</small>
 					</a><!-- /.brand -->
 				</div><!-- /.navbar-header -->
@@ -166,7 +166,7 @@
 
 								<li>
 									<a href="#">
-										<img src="{{asset('avatars/avatar.png')}}" class="msg-photo" alt="Alex's Avatar" />
+										<img src="{{asset('/web_html/avatars/avatar.png')}}" class="msg-photo" alt="Alex's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Alex:</span>
@@ -183,7 +183,7 @@
 
 								<li>
 									<a href="#">
-										<img src="{{asset('avatars/avatar3.png')}}" class="msg-photo" alt="Susan's Avatar" />
+										<img src="{{asset('/web_html/avatars/avatar3.png')}}" class="msg-photo" alt="Susan's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Susan:</span>
@@ -200,7 +200,7 @@
 
 								<li>
 									<a href="#">
-										<img src="{{asset('avatars/avatar4.png')}}" class="msg-photo" alt="Bob's Avatar" />
+										<img src="{{asset('/web_html/avatars/avatar4.png')}}" class="msg-photo" alt="Bob's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Bob:</span>
@@ -226,7 +226,7 @@
 
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="{{asset('avatars/user.jpg')}}" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="{{asset('/web_html/avatars/user.jpg')}}" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>Welcome,</small>
 									Jason

@@ -27,7 +27,11 @@ class RoleController extends WebBasicController {
 		$returnRes = $this->roleModel->addrule($request->input());
 
 		if ($returnRes['error']) {
-			
+			$this->ajaxRes['msg'] = $returnRes['msg'];
+		}else{
+			$this->ajaxRes = [
+				'status' => 0,
+			];
 		}
 
 		return response()->json($this->ajaxRes);

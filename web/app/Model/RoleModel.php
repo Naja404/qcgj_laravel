@@ -5,6 +5,7 @@ use App\Services\RoleService;
 
 class RoleModel extends Model {
 
+	// 默认表名
 	protected $table = 'qcgj_role_user';
 	//返回内容
 	public $returnRes = ['error' => false, 'msg' => [], 'data' => []];
@@ -16,7 +17,9 @@ class RoleModel extends Model {
 	 */
 	public function addrule(array $ruleData){
 		$this->table = 'qcgj_role_rule';
-		// unset($ruleData['_token']);
+		
+		unset($ruleData['_token']);
+
 		$ruleValidator = RoleService::ruleValidator($ruleData, $this->table);
 
 		if ($ruleValidator->fails()) {
@@ -26,7 +29,6 @@ class RoleModel extends Model {
 			$this->returnRes = [
 				'error' => true,
 				'msg'   => $validatorErr[0],
-				'data'  => [],
 			];
 			
 			return $this->returnRes;
