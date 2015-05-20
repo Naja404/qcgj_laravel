@@ -1,0 +1,90 @@
+				<div class="sidebar" id="sidebar">
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+					</script>
+
+					<ul class="nav nav-list">
+						<li>
+							<a href="#">
+								<i class="icon-dashboard"></i>
+								<span class="menu-text"> Dashboard </span>
+							</a>
+						</li>
+
+						<li class="active open">
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-list"></i>
+								<span class="menu-text"> 优惠券管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li class="active">
+									<a href="{{url('Coupon/listview')}}">
+										<i class="icon-double-angle-right"></i>
+										优惠券列表
+									</a>
+								</li>
+
+								<li class="active">
+									<a href="{{url('Coupon/analysis')}}">
+										<i class="icon-double-angle-right"></i>
+										优惠券报表
+									</a>
+								</li>
+
+<!-- 								<li>
+									<a href="jqgrid.html">
+										<i class="icon-double-angle-right"></i>
+										jqGrid plugin
+									</a>
+								</li> -->
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-edit"></i>
+								<span class="menu-text"> 收单管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li>
+									<a href="form-elements.html">
+										<i class="icon-double-angle-right"></i>
+										收单列表
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-edit"></i>
+								<span class="menu-text"> 商户信息 </span>
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li>
+									<a href="{:U('Shop/listview')}">
+										<i class="icon-double-angle-right"></i>
+										商户列表
+									</a>
+								</li>
+							</ul>
+						</li>
+
+					</ul><!-- /.nav-list -->
+
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+					</script>
+				</div>
