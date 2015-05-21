@@ -21,7 +21,8 @@ class WebBasicModel extends Model {
 
 			if (!in_array($v->module, array_keys($menuArr))) {
 				$menuArr[$v->module] = [
-					'title' => $v->module_title,
+					'title'  => $v->module_title,
+					'module' => $v->module,
 				];
 			}
 

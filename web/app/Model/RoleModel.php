@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use App\Services\RoleService;
+use App\Model\RoleRuleModel;
 
 class RoleModel extends Model {
 
@@ -50,6 +51,32 @@ class RoleModel extends Model {
 		$this->_setRoleRuleTable();
 
 		return RoleModel::paginate(1);
+	}
+
+	/**
+	 * 权限规则列表
+	 */
+	public function roleRuleList(){
+
+		$queryRes = RoleRuleModel::where('status', '=', 1)->orderBy('sort', 'desc')->get();
+
+		$roleRuleList = array();
+
+		foreach ($queryRes as $k => $v) {
+			if (!in_array($v->module, array_keys($roleRuleList))) {
+				$roleRuleList[$v->module] = [
+					'title'  => $v->module_title,
+				];
+			}
+
+			$roleRuleList[$v->module]['list'][] = [
+				'title'   => $v->action_title,
+				'rule_id' => $v->id,
+				'url'     => $v->action_url,
+			];
+		}
+
+		return $roleRuleList;
 	}
 
 	/**

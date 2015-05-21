@@ -3,7 +3,7 @@
 use App\Model\WebBasicModel;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\URL;
-
+use Illuminate\Support\Facades\Route;
 
 class WebBasicController extends Controller {
 
@@ -14,7 +14,7 @@ class WebBasicController extends Controller {
 			);
 
 	public function __construct(){
-		
+		View::share('currentController', Route::currentRouteName());
 		View::share('currentURL', URL::current());
 		View::share('menuArr', $this->_setNavBar());
 	}

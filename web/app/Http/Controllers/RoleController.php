@@ -13,13 +13,15 @@ class RoleController extends WebBasicController {
 	}
 
 	public function index(){
-		// return view('coupon.listview');
+		
 	}
 
 	public function roleList(){
+		$roleRuleList = $this->roleModel->roleRuleList();
+
 		$roleList = $this->roleModel->roleList();
 
-		return view('role.rolelist', ['roleList' => $roleList]);
+		return view('role.rolelist', ['roleList' => $roleList, 'roleRuleList' => $roleRuleList]);
 	}
 
 	/**

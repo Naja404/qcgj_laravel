@@ -20,7 +20,4 @@ class RoleUserModel extends Model {
 		return $this->hasMany('App\Model\RoleRule');
 	}
 
-	public function testss(){
-		
-	}
 }

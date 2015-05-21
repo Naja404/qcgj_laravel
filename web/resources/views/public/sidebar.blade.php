@@ -11,7 +11,7 @@
 							</a>
 						</li>
 						@foreach ($menuArr as $v)
-						<li class="active open">
+						<li class="@if ($currentController == $v['module'])active open @endif">
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-list"></i>
 								<span class="menu-text"> {{$v['title']}} </span>

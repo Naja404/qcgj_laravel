@@ -215,11 +215,24 @@
 													<td>
 														{{trans('role.TEXT_ROLE_RULE')}}
 													</td>
+													
 													<td>
-														<input type="checkbox" name="role_rule[]" />
+
+													</td>
+													
+												</tr>
+												@foreach($roleRuleList as $rule)
+												<tr>
+													<td class="center">
+														{{$rule['title']}}
+													</td>
+													<td>
+														@foreach($rule['list'] as $sub)
+														<input type="checkbox" name="role_rule[]" id="{{$sub['url']}}" value="{{$sub['rule_id']}}"/><label for="{{$sub['url']}}">{{$sub['title']}}</label><br/>
+														@endforeach
 													</td>
 												</tr>
-
+												@endforeach
 											</tbody>
 										</table>
 									</div>
