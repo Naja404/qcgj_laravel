@@ -8,6 +8,7 @@ class RoleController extends WebBasicController {
 	public $roleModel;
 
 	public function __construct(){
+		parent::__construct();
 		$this->roleModel = new RoleModel;
 	}
 
@@ -16,7 +17,6 @@ class RoleController extends WebBasicController {
 	}
 
 	public function roleList(){
-		echo makeUUID();exit;
 		$roleList = $this->roleModel->roleList();
 
 		return view('role.rolelist', ['roleList' => $roleList]);

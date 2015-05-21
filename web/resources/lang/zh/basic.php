@@ -3,6 +3,7 @@ return [
 		'TEXT_TITLE'         => '商户管理后台',
 		'TEXT_COMPANY_TITLE' => '上海鑫邑信息科技有限公司',
 		'TEXT_HOME_PAGE'     => '主页',
+		'TEXT_MENU'			 => '菜单',
 		
 		'BTN_SUBMIT'         => '提交',
 		'BTN_RESET'          => '重置',

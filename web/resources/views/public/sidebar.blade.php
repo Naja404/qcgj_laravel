@@ -7,76 +7,31 @@
 						<li>
 							<a href="#">
 								<i class="icon-dashboard"></i>
-								<span class="menu-text"> Dashboard </span>
+								<span class="menu-text"> {{trans('basic.TEXT_MENU')}} </span>
 							</a>
 						</li>
-
+						@foreach ($menuArr as $v)
 						<li class="active open">
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-list"></i>
-								<span class="menu-text"> 优惠券管理 </span>
+								<span class="menu-text"> {{$v['title']}} </span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
 
 							<ul class="submenu">
-								<li class="active">
-									<a href="{{url('Coupon/listview')}}">
+								@foreach($v['list'] as $sub)
+								<li class="@if ($currentURL == $sub['url'])active @endif">
+									<a href="{{$sub['url']}}">
 										<i class="icon-double-angle-right"></i>
-										优惠券列表
+										{{$sub['title']}}
 									</a>
 								</li>
-
-								<li class="active">
-									<a href="{{url('Coupon/analysis')}}">
-										<i class="icon-double-angle-right"></i>
-										优惠券报表
-									</a>
-								</li>
-
-<!-- 								<li>
-									<a href="jqgrid.html">
-										<i class="icon-double-angle-right"></i>
-										jqGrid plugin
-									</a>
-								</li> -->
+								@endforeach
 							</ul>
 						</li>
+						@endforeach
 
-						<li>
-							<a href="#" class="dropdown-toggle">
-								<i class="icon-edit"></i>
-								<span class="menu-text"> 收单管理 </span>
-
-								<b class="arrow icon-angle-down"></b>
-							</a>
-
-							<ul class="submenu">
-								<li>
-									<a href="form-elements.html">
-										<i class="icon-double-angle-right"></i>
-										收单列表
-									</a>
-								</li>
-							</ul>
-						</li>
-
-						<li>
-							<a href="#" class="dropdown-toggle">
-								<i class="icon-edit"></i>
-								<span class="menu-text"> 商户信息 </span>
-								<b class="arrow icon-angle-down"></b>
-							</a>
-
-							<ul class="submenu">
-								<li>
-									<a href="{:U('Shop/listview')}">
-										<i class="icon-double-angle-right"></i>
-										商户列表
-									</a>
-								</li>
-							</ul>
-						</li>
 
 					</ul><!-- /.nav-list -->
 
