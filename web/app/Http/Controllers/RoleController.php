@@ -15,16 +15,19 @@ class RoleController extends WebBasicController {
 		// return view('coupon.listview');
 	}
 
-	public function rolelist(){
-		return view('role.rolelist');
+	public function roleList(){
+		echo makeUUID();exit;
+		$roleList = $this->roleModel->roleList();
+
+		return view('role.rolelist', ['roleList' => $roleList]);
 	}
 
 	/**
 	 * 添加权限规则
 	 */
 	public function addrule(Request $request){
-
-		$returnRes = $this->roleModel->addrule($request->input());
+ 
+		$returnRes = $this->roleModel->addRule($request->input());
 
 		if ($returnRes['error']) {
 			$this->ajaxRes['msg'] = $returnRes['msg'];

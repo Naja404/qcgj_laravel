@@ -34,6 +34,9 @@ require __DIR__.'/../bootstrap/autoload.php';
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
+// 引用自定义函数
+require_once __DIR__.'/../app/Helper/functions.php';
+
 /*
 |--------------------------------------------------------------------------
 | Run The Application

@@ -16,7 +16,7 @@ class RoleService {
 
 		return Validator::make($data, [
 			'module'       => 'required|max:32',
-			'module_title' => 'required|max:255|unique:'.$tableName,
+			'module_title' => 'required|max:255',
 			'action_title' => 'required|max:255|unique:'.$tableName,
 			'action_url'   => 'required|max:255|unique:'.$tableName,
 			'sort'         => 'required|numeric',

@@ -30,4 +30,7 @@ return [
 
 	'compiled' => realpath(storage_path().'/framework/views'),
 
+	// 自定义分页显示模版
+	'pagination' => 'resources/views/public/paginate',
+
 ];

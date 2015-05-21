@@ -15,9 +15,8 @@ class RoleModel extends Model {
 	 * @param array $ruleData 权限内容数组
 	 * @return mixed
 	 */
-	public function addrule(array $ruleData){
-		$this->table = 'qcgj_role_rule';
-		
+	public function addRule(array $ruleData){
+		$this->_setRoleRuleTable();
 		unset($ruleData['_token']);
 
 		$ruleValidator = RoleService::ruleValidator($ruleData, $this->table);
@@ -45,12 +44,28 @@ class RoleModel extends Model {
 	}
 
 	/**
+	 * 角色列表
+	 */
+	public function roleList(){
+		$this->_setRoleRuleTable();
+
+		return RoleModel::paginate(1);
+	}
+
+	/**
 	 * 添加用户
 	 * @param array $userData 用户内容数组
 	 * @return mixed
 	 */
 	public function addUser($userData = array()){
 
+	}
+
+	/**
+	 * 设置数据表
+	 */
+	private function _setRoleRuleTable(){
+		$this->table = 'qcgj_role_rule';
 	}
 
 }

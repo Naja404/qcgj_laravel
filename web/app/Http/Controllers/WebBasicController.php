@@ -12,4 +12,11 @@ class WebBasicController extends Controller {
 		
 	}
 
+	/**
+	 * 设置左侧导航
+	 */
+	private function _setNavBar(){
+		
+	}
+
 }

@@ -14,7 +14,7 @@
 Route::get('/', 'WelcomeController@index');
 
 Route::get('Coupon/list', 'CouponController@listview');
-Route::get('Role/rolelist', 'RoleController@rolelist');
+Route::get('Role/rolelist', 'RoleController@roleList');
 Route::post('Role/addrule', 'RoleController@addrule');
 
 Route::get('home', 'HomeController@index');
