@@ -2,6 +2,7 @@
 
 use App\Model\RoleModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class RoleController extends WebBasicController {
 
@@ -13,7 +14,7 @@ class RoleController extends WebBasicController {
 	}
 
 	public function index(){
-		
+
 	}
 
 	public function roleList(){
@@ -21,13 +22,15 @@ class RoleController extends WebBasicController {
 
 		$roleList = $this->roleModel->roleList();
 
+		View::share('pageTitle', '2112');
+
 		return view('role.rolelist', ['roleList' => $roleList, 'roleRuleList' => $roleRuleList]);
 	}
 
 	/**
 	 * 添加权限规则
 	 */
-	public function addrule(Request $request){
+	public function addRule(Request $request){
  
 		$returnRes = $this->roleModel->addRule($request->input());
 
@@ -42,5 +45,11 @@ class RoleController extends WebBasicController {
 		return response()->json($this->ajaxRes);
 	}
 
+	/**
+	 * 添加角色
+	 */
+	public function addRole(){
+
+	}
 
 }
