@@ -16,6 +16,8 @@ return [
 	'TEXT_RULE_TYPE_NOTE'                => 'URL:作为菜单显示,Ajax:不显示为菜单',
 	'TEXT_ROLE_MANAGER'                  => '角色管理',
 	'TEXT_ROLE_LIST'                     => '角色列表',
+	'TEXT_TITLE_ROLELIST'                => '角色列表',
+	'TEXT_ROLE_USERNAME' => '用户名',
 	
 	'TEXT_PLACEHOLDER_RULE_MODULE'       => '如:Coupon',
 	'TEXT_PLACEHOLDER_RULE_MODULE_TITLE' => '如:优惠券管理',

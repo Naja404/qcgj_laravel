@@ -75,7 +75,7 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="table-responsive">
-											<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+											<table id="rolelist-table" class="table table-striped table-bordered table-hover">
 												<thead>
 													<tr>
 														<th class="center">
@@ -84,17 +84,11 @@
 																<span class="lbl"></span>
 															</label>
 														</th>
-														<th>Domain</th>
-														<th>Price</th>
-														<th class="hidden-480">Clicks</th>
-
-														<th>
-															<i class="icon-time bigger-110 hidden-480"></i>
-															Update
-														</th>
-														<th class="hidden-480">Status</th>
-
-														<th></th>
+														<th>{{trans('role.TEXT_ROLE_USERNAME')}}</th>
+														<th>{{trans('role.TEXT_ROLE_RULE')}}</th>
+														<th>{{trans('basic.TEXT_CREATED_TIME')}}</th>
+														<th>{{trans('basic.TEXT_STATUS')}}</th>
+														<th>{{trans('basic.TEXT_OPERATION')}}</th>
 													</tr>
 												</thead>
 
@@ -109,14 +103,18 @@
 														</td>
 
 														<td>
-															<a href="#">ace.com</a>
+															<a href="#">{{$v->userName}}</a>
 														</td>
-														<td>$45</td>
-														<td class="hidden-480">3,330</td>
-														<td>Feb 12</td>
+														<td>{{$v->roleName}}</td>
+														<td class="hidden-480">{{date('Y-m-d H:i:s', $v->created_time)}}</td>
 
 														<td class="hidden-480">
-															<span class="label label-sm label-warning">Expiring</span>
+															@if ($v->status == 1)
+																<span class="label label-error">{{trans('basic.TEXT_STATUS_NORMAL')}}</span>
+															@else
+																<span class="label label-success">{{trans('basic.TEXT_STATUS_STOP')}}</span>
+															@endif
+															
 														</td>
 
 														<td>

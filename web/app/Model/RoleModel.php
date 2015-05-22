@@ -3,11 +3,13 @@
 use Illuminate\Database\Eloquent\Model;
 use App\Services\RoleService;
 use App\Model\RoleRuleModel;
+use App\Model\RoleUserModel;
+use DB;
 
 class RoleModel extends Model {
 
 	// 默认表名
-	protected $table = 'qcgj_role_user';
+	protected $table = 'qcgj_role';
 	//返回内容
 	public $returnRes = ['error' => false, 'msg' => [], 'data' => []];
 
@@ -48,9 +50,12 @@ class RoleModel extends Model {
 	 * 角色列表
 	 */
 	public function roleList(){
-		$this->_setRoleRuleTable();
+		$roleList = DB::table('qcgj_role_user AS a')
+								->select('a.name AS userName', 'b.name AS roleName', 'a.status', 'a.created_time')
+								->join('qcgj_role AS b', 'b.role_id', '=', 'a.role_id')
+								->paginate(15);
 
-		return RoleModel::paginate(1);
+		return $roleList;
 	}
 
 	/**

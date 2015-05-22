@@ -2,7 +2,8 @@
 
 use App\Model\RoleModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
+use View;
+use Lang;
 
 class RoleController extends WebBasicController {
 
@@ -22,7 +23,7 @@ class RoleController extends WebBasicController {
 
 		$roleList = $this->roleModel->roleList();
 
-		View::share('pageTitle', '2112');
+		View::share('pageTitle', Lang::get('role.TEXT_TITLE_ROLELIST'));
 
 		return view('role.rolelist', ['roleList' => $roleList, 'roleRuleList' => $roleRuleList]);
 	}
