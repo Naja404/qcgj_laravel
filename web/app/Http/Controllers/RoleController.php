@@ -10,7 +10,7 @@ class RoleController extends WebBasicController {
 	public $roleModel;
 
 	public function __construct(){
-		parent::__construct();
+		
 		$this->roleModel = new RoleModel;
 	}
 

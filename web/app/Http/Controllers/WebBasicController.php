@@ -1,9 +1,9 @@
 <?php namespace App\Http\Controllers;
 
 use App\Model\WebBasicModel;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\Route;
+use View;
+use URL;
+use Route;
 
 class WebBasicController extends Controller {
 
@@ -12,11 +12,11 @@ class WebBasicController extends Controller {
 				'status' => 1,
 				'msg'    => 'ERR_PARAM',
 			);
+	// 当前方法名
+	public $currentActionName;
 
 	public function __construct(){
-		View::share('currentController', Route::currentRouteName());
-		View::share('currentURL', URL::current());
-		View::share('menuArr', $this->_setNavBar());
+		$this->_assignProperty();
 	}
 
 	/**
@@ -26,4 +26,13 @@ class WebBasicController extends Controller {
 		return WebBasicModel::getNavBar('838ad7c331df1d06b7cf584385d7fcc7');
 	}
 
+	/**
+	 * 定义常用属性
+	 */
+	private function _assignProperty(){
+		$this->currentActionName = Route::currentRouteActionName();
+		View::share('currentController', Route::currentRouteName());
+		View::share('currentURL', URL::current());
+		View::share('menuArr', $this->_setNavBar());
+	}
 }

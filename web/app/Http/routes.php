@@ -1,25 +1,15 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
 Route::get('/', 'WelcomeController@index');
 
-Route::get('Coupon/list', 'CouponController@listview');
-Route::get('Role/rolelist', ['uses' => 'RoleController@roleList', 'as' => 'Role']);
-Route::post('Role/addrule', 'RoleController@addRule');
+// coupon 优惠券管理分组
+Route::group(['prefix' => 'Coupon', 'as' => 'Coupon'], function(){
+	Route::get('list', 'CouponController@listview');
+	Route::any('add', 'CouponController@addCoupon');
+});
 
-Route::get('home', 'HomeController@index');
-
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+// role 权限管理分组
+Route::group(['prefix' => 'Role', 'as' => 'Role'], function(){
+	Route::get('rolelist', 'RoleController@rolelist');
+	Route::post('addrule', 'RoleController@addRule');
+});
